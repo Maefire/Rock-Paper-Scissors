@@ -8,14 +8,14 @@ If wins equal 5, return 'you win!'
 let computerScore = 0
 let playerScore   = 0
 let roundOutcome  = ''
-const choices = ["rock", "paper", "scissors"]
+let choices = ["rock", "paper", "scissors"]
 
 let computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
 
-function getComputerChoice(){
-    return choices[Math.floor(Math.random() * choices.length)];   
-};
+// function getComputerChoice(){
+//     return choices[Math.floor(Math.random() * choices.length)];   
+// };
 
 function playRound(playerSelection, computerSelection) {
     if(
@@ -38,15 +38,26 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-let computerSelection = getComputerChoice();
-/* const playerSelection = "rock";
-const computerSelection = getComputerChoice(); */
+let computerSelection = computerChoice;
+//  const playerSelection = "rock";
+//const computerSelection = getComputerChoice(); 
 console.log(playRound(playerSelection, computerSelection));
 
-function game(playRound){
-    while (computerScore === 5 || playerScore === 5){
-        
+function game(){
     
+    for(roundTotal = 0; roundTotal < 5; roundTotal++){
+        console.log(roundTotal,playRound(playerSelection,computerSelection));
+    }
+    console.log(roundTotal);
+
+    if (playerScore > computerScore && roundTotal === 5){
+        return("Congratulations! You won!")
+    }else if(playerScore < computerScore && roundTotal === 5){
+        return("Oh no! You lost!")
+    }else {
+        return("There is no winner. Shake metaphorical hands on your tie.")
     }
 }
+console.log(game());
 console.log(computerScore,playerScore);
+     
