@@ -25,7 +25,7 @@ function playRound(playerSelection, computerSelection) {
         }else if (
             (computerSelection === playerSelection)
             ){
-                roundOutcome= 'Round tied!,console.log(playerScore,computerScore)'
+                roundOutcome= 'Round tied!',console.log(playerScore,computerScore);
                 return (roundOutcome);
             }
         else {
