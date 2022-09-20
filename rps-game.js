@@ -5,20 +5,13 @@ rock<paper<scissors<rock If rock and paper are chosen, then return paper wins. R
 If wins equal 5, return 'you win!'
 */
 
-let computerScore = 0;
-let playerScore   = 0;
-let roundOutcome  = '';
-let choices = ["rock", "paper", "scissors"];
-let playerSelection ='';
-let computerSelection = '';
-
-
-
-
-
-// function getComputerChoice(){
-//     return choices[Math.floor(Math.random() * choices.length)];   
-// };
+let computerScore     = 0;
+let playerScore       = 0;
+let roundOutcome      ='';
+let choices           = ["rock", "paper", "scissors"];
+let playerSelection   ='';
+let computerSelection ='';
+let gameOutcome       ='';
 
 function playRound(playerSelection, computerSelection) {
     if(
@@ -27,25 +20,20 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === "scissors" && playerSelection === "paper")
         ){
             computerScore++
-            roundOutcome ="Oh no! The commputer wins this round!";
+            roundOutcome ='Oh no! The computer wins this round!',console.log(playerScore,computerScore);
             return (roundOutcome);
         }else if (
             (computerSelection === playerSelection)
             ){
-                roundOutcome= 'Round tied!'
+                roundOutcome= 'Round tied!,console.log(playerScore,computerScore)'
                 return (roundOutcome);
             }
         else {
                 playerScore++
-                roundOutcome = "You win this round!";
+                roundOutcome = 'You win this round!',console.log(playerScore,computerScore);
                 return (roundOutcome);
         }  
 }
-
-
-//  const playerSelection = "rock";
-//const computerSelection = getComputerChoice(); 
-// console.log(playRound(playerSelection, computerSelection));
 
 function game(){
     
@@ -54,8 +42,15 @@ function game(){
         let playerSelection = prompt("Choose Rock, Paper, or Scissors");
         console.log(roundTotal,playRound(playerSelection,computerSelection));
     }
-    return("Game Complete")
+    if(playerScore > computerScore){
+        gameOutcome = "Congratulations! You win!";
+        return (gameOutcome);
+    }else if(computerScore > playerScore){
+        gameOutcome = "Congra- Oh. Nevermind. The computer wins!";
+        return (gameOutcome);
+    }else
+        gameOutcome = "The computer showed mercy. Game draw.";
+        return (gameOutcome);
 }
 console.log(game());
 console.log(computerScore,playerScore);
-     
