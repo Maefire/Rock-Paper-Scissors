@@ -5,12 +5,15 @@ rock<paper<scissors<rock If rock and paper are chosen, then return paper wins. R
 If wins equal 5, return 'you win!'
 */
 
-let computerScore = 0
-let playerScore   = 0
-let roundOutcome  = ''
-let choices = ["rock", "paper", "scissors"]
+let computerScore = 0;
+let playerScore   = 0;
+let roundOutcome  = '';
+let choices = ["rock", "paper", "scissors"];
+let playerSelection ='';
+let computerSelection = '';
 
-let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+
 
 
 // function getComputerChoice(){
@@ -24,39 +27,34 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === "scissors" && playerSelection === "paper")
         ){
             computerScore++
-            return(computerSelection);
+            roundOutcome ="Oh no! The commputer wins this round!";
+            return (roundOutcome);
         }else if (
             (computerSelection === playerSelection)
             ){
-                roundOutcome= 'Game tied!'
+                roundOutcome= 'Round tied!'
                 return (roundOutcome);
             }
         else {
                 playerScore++
-                return (playerSelection);
+                roundOutcome = "You win this round!";
+                return (roundOutcome);
         }  
 }
 
-let playerSelection = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-let computerSelection = computerChoice;
+
 //  const playerSelection = "rock";
 //const computerSelection = getComputerChoice(); 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
 
 function game(){
     
     for(roundTotal = 0; roundTotal < 5; roundTotal++){
+        let computerSelection = choices[Math.floor(Math.random() * choices.length)];
+        let playerSelection = prompt("Choose Rock, Paper, or Scissors");
         console.log(roundTotal,playRound(playerSelection,computerSelection));
     }
-    console.log(roundTotal);
-
-    if (playerScore > computerScore && roundTotal === 5){
-        return("Congratulations! You won!")
-    }else if(playerScore < computerScore && roundTotal === 5){
-        return("Oh no! You lost!")
-    }else {
-        return("There is no winner. Shake metaphorical hands on your tie.")
-    }
+    return("Game Complete")
 }
 console.log(game());
 console.log(computerScore,playerScore);
