@@ -8,12 +8,23 @@ report round results, and game results, in console
 
 let computerScore     = 0;
 let playerScore       = 0;
+
 let roundOutcome      ='';
-let choices           = ["rock", "paper", "scissors"];
-let playerSelection   ='';
-let computerSelection ='';
 let gameOutcome       ='';
-let buttons = document.querySelectorAll(".btn")
+
+let playerTurn           ;
+let computerSelection ='';
+
+const choices         = ["rock", "paper", "scissors"];
+const buttons         = document.querySelectorAll("div.buttonChoice button");
+
+function computerTurn(){
+    let computerSelection = choices[Math.floor(Math.random() * choices.length)];
+    return computerSelection;
+};
+
+
+buttons.forEach(button =>{button.addEventListener('click', playerChoice)});
 
 function playRound(playerSelection, computerSelection) {
     if(
@@ -22,55 +33,35 @@ function playRound(playerSelection, computerSelection) {
         (computerSelection === "scissors" && playerSelection === "paper")
         ){
             computerScore++
-            roundOutcome ="Oh no! The computer wins this round!",console.log(playerScore,computerScore);
-            return (roundOutcome);
-        }else if (
-            (computerSelection === playerSelection)
-            ){
-                roundOutcome= "Round tied!",console.log(playerScore,computerScore);
-                return (roundOutcome);
-            }
-        else {
+            roundOutcome ="Oh no! The computer wins this round!",console.log(playerScore,computerScore);            
+        }else if ((computerSelection === playerSelection)){
+                roundOutcome= "Round tied!",console.log(playerScore,computerScore);               
+        }else {
                 playerScore++
-                roundOutcome = "You win this round!",console.log(playerScore,computerScore);
-                return (roundOutcome);
-        }  
-}
-
-
-
-buttons.forEach(function (item){
-    item.addEventListener('click', function (getPlayerChoice){
-        let playerSelection = (getPlayerChoice.target.id);
-        playRound(playerSelection,computerSelection);
-    });
-});
-
-
-    /* function game(){
-        
-        for(roundTotal = 0; roundTotal < 5; roundTotal++){
-            let computerSelection = choices[Math.floor(Math.random() * choices.length)];
-            let playerSelection = prompt("Choose Rock, Paper, or Scissors");
-            console.log(roundTotal,playRound(playerSelection,computerSelection));
+                roundOutcome = "You win this round!",console.log(playerScore,computerScore);         
         }
-        if(playerScore > computerScore){
-            gameOutcome = "Congratulations! You win!";
-            return (gameOutcome);
-        }else if(computerScore > playerScore){
-            gameOutcome = "Congra- Oh. Nevermind. The computer wins!";
-            return (gameOutcome);
-        }else
-            gameOutcome = "The computer showed mercy. Game draw.";
-            return (gameOutcome);
-    } 
-    console.log(game());
-    console.log(computerScore,playerScore);*/
-    
-    
-    /*const removeFromArray = function(...theArgs) {
-        const array = theArgs[0];
-        return array.filter(value => !theArgs.includes(value));
-    };*/
-    
-    //document.getElementById("rock").addEventListener("click",playRound);
+        console.log(roundOutcome);
+        endGameResults();
+        console.log(endGameResults());
+    };
+
+
+function playerChoice(e){
+        let playerSelection = (e.target.id);
+        playerTurn = e.target.id;
+        playRound(playerSelection,computerTurn());        
+    };
+
+function endGameResults(){
+    if (playerScore === 5 && computerScore !== 5){
+        gameOutcome = "You showed that Skynet wannabe who the real machine is!";
+        buttons.forEach(button => {button.removeEventListener('click', playerChoice);
+    });
+        return (gameOutcome);
+    }else if (playerScore !== 5 && computerScore === 5){
+        gameOutcome = "You lost? Seriously? This thing should have been programmed to lose!";
+        buttons.forEach(button => {button.removeEventListener('click', playerChoice);
+    });
+        return (gameOutcome);
+    }        
+};
