@@ -1,19 +1,20 @@
-let computerScore     = 0;
-let playerScore       = 0;
+let computerScore = 0;
+let playerScore   = 0;
 
-let gameRunning      = true;
+let gameRunning   = true;
 
-const buttons         = document.querySelectorAll("div.buttonChoice button");
+const buttons     = document.querySelectorAll("div.buttonChoice button");
+const choices     = ["rock", "paper", "scissors"]
 
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         if (gameRunning) {
-            let playerSelection = parseInt(e.target.value);
-            let computerSelection = Math.floor(Math.random() * 3);
+            let playerSelection = (e.target.id);
+            let computerSelection = choices[Math.floor(Math.random() * choices.length)];
             if (
-                    (computerSelection === 1 && playerSelection === 3) ||
-                    (computerSelection === 2 && playerSelection === 1) ||
-                    (computerSelection === 3 && playerSelection === 2)) {
+                    (computerSelection === "rock" && playerSelection === "scissors") ||
+                    (computerSelection === "paper" && playerSelection === "rock") ||
+                    (computerSelection === "scissors" && playerSelection === "paper")) {
                 computerScore++;
                 console.log("Oh no! The computer wins this round!\n", playerScore, computerScore);            
                 if (computerScore >= 5) {
