@@ -15,10 +15,24 @@
     margin-left: auto;
     justify-items: right;
     color: aliceblue;
-    padding: 2em;
+    padding: 1.5em 2em;
     border-image: linear-gradient(#3cc1f6, #a940ff) 30;
     border-width: 4px;
-    border-style: solid;
+    font-size: 1rem;
+}
+#rock:hover{
+    background-color: hsla(0, 5%, 67%, 70);
+    font-weight: 700;
+}
+#paper:hover{
+    background-color: hsla(0, 0%, 100%, 70);
+    color: black;
+    font-weight: 700;
+}
+#scissors:hover{
+    background-color: #ffffffb0;
+    color: darkred;
+    font-weight: 700;
 }
 
 .displayText{
@@ -26,11 +40,16 @@
 }
 
 .displayRetry{
-    padding: 1em;
+    padding: 1em 2em;
     margin-top: 1em;
     margin-left: auto;
     color: aliceblue;
     border-image: linear-gradient(#ffed49, #ff0000) 10;
     border-width: 4px;
-    border-style: solid;
+}
+.retryContainer button:hover{
+    background-color: #ff000090;
+    font-weight: 700;
+    color: black;
+    font-size: 1em;
 }
