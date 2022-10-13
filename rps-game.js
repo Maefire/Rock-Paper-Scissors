@@ -1,13 +1,18 @@
+//Game start state
 let computerScore        = 0;
 let playerScore          = 0;
+let gameRunning          = true;
 roundResults.textContent = `You versus the computer overlord. Five rounds. Who. Will. Win?\n`;
 displayScore.textContent = `You: ${playerScore} Computer: ${computerScore}`;
 
-let gameRunning          = true;
+//lizard, Spock
+const choices            = ["rock", "paper", "scissors"];
 
+//Document info pulls
 const buttons            = document.querySelectorAll("div.buttonChoice button");
-const choices            = ["rock", "paper", "scissors"]
+const retry              = document.getElementById("retryButton");
 
+//game time
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         if (gameRunning) {
@@ -39,6 +44,15 @@ buttons.forEach(button => {
                     roundResults.textContent = "You showed that Skynet wannabe who the real machine is!";
                 }
             }
-        }
+        }else if(gameRunning == false){            
+            retry.addEventListener('click',() =>{                
+                playerScore = 0;
+                computerScore = 0;
+                roundResults.textContent = `You versus the computer overlord. Five rounds. Who.\
+                        Will. Win?\n`;
+                displayScore.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+                gameRunning = true;
+            });//Game reset condition
+        };
     });
 });
