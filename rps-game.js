@@ -1,10 +1,12 @@
-let computerScore = 0;
-let playerScore   = 0;
+let computerScore        = 0;
+let playerScore          = 0;
+roundResults.textContent = `You versus the computer overlord. Five rounds. Who. Will. Win?\n`;
+displayScore.textContent = `You: ${playerScore} Computer: ${computerScore}`;
 
-let gameRunning   = true;
+let gameRunning          = true;
 
-const buttons     = document.querySelectorAll("div.buttonChoice button");
-const choices     = ["rock", "paper", "scissors"]
+const buttons            = document.querySelectorAll("div.buttonChoice button");
+const choices            = ["rock", "paper", "scissors"]
 
 buttons.forEach(button => {
     button.addEventListener('click', e => {
@@ -16,19 +18,25 @@ buttons.forEach(button => {
                     (computerSelection === "paper" && playerSelection === "rock") ||
                     (computerSelection === "scissors" && playerSelection === "paper")) {
                 computerScore++;
-                console.log("Oh no! The computer wins this round!\n", playerScore, computerScore);            
+                roundResults.textContent = "Oh no! The computer wins this round!\n";
+                displayScore.textContent = 
+                    `You: ${playerScore} Computer: ${computerScore}`;            
                 if (computerScore >= 5) {
                     gameRunning = false;
-                    console.log("You lost? Seriously? This thing should have been programmed to lose!");
+                    roundResults.textContent = "You lost? Seriously? This thing should have been programmed to lose!";
                 }
             } else if ((computerSelection === playerSelection)) {
-                console.log("Round tied!\n", playerScore,computerScore);               
+                roundResults.textContent= "Round tied!\n";
+                displayScore.textContent = 
+                    `You: ${playerScore} Computer: ${computerScore}`;               
             } else {
                 playerScore++;
-                console.log("You win this round!\n", playerScore, computerScore);         
+                roundResults.textContent = "You win this round!\n";
+                displayScore.textContent = 
+                    `You: ${playerScore} Computer: ${computerScore}`;         
                 if (playerScore >= 5) {
                     gameRunning = false;
-                    console.log("You showed that Skynet wannabe who the real machine is!");
+                    roundResults.textContent = "You showed that Skynet wannabe who the real machine is!";
                 }
             }
         }
