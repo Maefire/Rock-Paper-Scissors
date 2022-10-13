@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    background-color: #050c33;
+}
+.buttonChoice, .displayRetry{
+    display: flex;
+    margin-top: 20em;
+    position:absolute;
+    gap: 1em;
+}
+
+.btn{
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    justify-items: right;
+    color: aliceblue;
+    padding: 2em;
+    border-image: linear-gradient(#3cc1f6, #a940ff) 30;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.displayText{
+    color: aliceblue;
+}
+
+.displayRetry{
+    padding: 1em;
+    margin-top: 1em;
+    margin-left: auto;
+    color: aliceblue;
+    border-image: linear-gradient(#ffed49, #ff0000) 10;
+    border-width: 4px;
+    border-style: solid;
+}
