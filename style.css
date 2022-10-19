@@ -1,55 +1,165 @@
 *{
     box-sizing: border-box;
-    background-color: #050c33;
+    background-color: #050c33;    
 }
-.buttonChoice, .displayRetry{
-    display: flex;
-    margin-top: 20em;
-    position:absolute;
-    gap: 1em;
-}
+@media (max-width: 375px){
+    body{
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: smaller;
+    }
+    .infoBox{
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+        z-index: 10;
+    }
+    #roundResults{
+        /* font-size: ; */
+    }
+    #displayScore{
+        position: relative;
+        align-self: center;
+        padding-top: 2em;        
+    }
 
-.btn{
-    display: flex;
-    position: relative;
-    margin-left: auto;
-    justify-items: right;
-    color: aliceblue;
-    padding: 1.5em 2em;
-    border-image: linear-gradient(#3cc1f6, #a940ff) 30;
-    border-width: 4px;
-    font-size: 1rem;
-}
-#rock:hover{
-    background-color: hsla(0, 5%, 67%, 70);
-    font-weight: 700;
-}
-#paper:hover{
-    background-color: hsla(0, 0%, 100%, 70);
-    color: black;
-    font-weight: 700;
-}
-#scissors:hover{
-    background-color: #ffffffb0;
-    color: darkred;
-    font-weight: 700;
-}
+    .buttonChoice{
+        display: flex;
+        gap: 1em;
+        justify-content: space-around;
+    }
+    .btn{
+        color: aliceblue;
+        padding: 1.5em 2em;
+        border-image: linear-gradient(#3cc1f6, #a940ff) 30;
+        border-width: 4px;        
+        word-wrap: break-word;
+    }
 
-.displayText{
-    color: aliceblue;
-}
+    * :hover{
+        
+    }
+    #rock:hover{
+        
+    }
+    #paper:hover{
+        
+    }
+    #scissors:hover{
+        
+    }
 
-.displayRetry{
-    padding: 1em 2em;
-    margin-top: 1em;
-    margin-left: auto;
-    color: aliceblue;
-    border-image: linear-gradient(#ffed49, #ff0000) 10;
-    border-width: 4px;
+    .displayText{
+        color: aliceblue;
+    }
+
+    .displayRetry{
+        padding: 1em 2em;
+        color: aliceblue;
+        border-image: linear-gradient(#ffed49, #ff0000) 10;
+        border-width: 4px;
+        word-wrap: break-word;
+        align-self: center;
+    }
+
+    .retryContainer{
+        display: flex;
+        
+    }
+    .retryContainer button:hover{
+        
+    }
 }
-.retryContainer button:hover{
-    background-color: #ff000090;
-    font-weight: 700;
-    color: black;
-    font-size: 1em;
+@media (min-width: 376px){
+    body{
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .infoBox{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+        top: 10em;
+        padding-left: 31vw;
+        z-index: 10;
+    }
+    #roundResults{
+
+        font-size: 2rem;
+    }
+    #displayScore{
+        position: relative;
+        align-self: center;
+        padding-top: 2em;
+        font-size: 2rem;
+    }
+
+    .buttonChoice{
+        display: flex;
+        gap: 4em;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 10em;
+        left: 38vw;
+        flex-wrap: wrap;    
+    }
+    .btn{
+        color: aliceblue;
+        padding: 1.5em 2em;
+        border-image: linear-gradient(#3cc1f6, #a940ff) 30;
+        border-width: 4px;
+        font-size: 1rem;
+        word-wrap: break-word;
+    }
+
+    * :hover{
+        cursor:pointer;
+    }
+    #rock:hover{
+        background-color: hsla(0, 5%, 67%, 70);
+        font-weight: 700;
+    }
+    #paper:hover{
+        background-color: hsla(0, 0%, 100%, 70);
+        color: black;
+        font-weight: 700;
+    }
+    #scissors:hover{
+        background-color: #ffffffb0;
+        color: darkred;
+        font-weight: 700;
+    }
+
+    .displayText{
+        color: aliceblue;
+    }
+
+    .displayRetry{
+        padding: 1em 2em;
+        color: aliceblue;
+        border-image: linear-gradient(#ffed49, #ff0000) 10;
+        border-width: 4px;
+        word-wrap: break-word;
+        align-self: center;
+    }
+
+    .retryContainer{
+        display: flex;
+        position: absolute;
+        padding-top: 25vh; 
+        left: 50vw;
+        z-index: 1;
+    }
+    .retryContainer button:hover{
+        background-color: #ff000090;
+        font-weight: 700;
+        color: black;
+        font-size: 1em;
+    }
 }
