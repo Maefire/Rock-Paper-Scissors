@@ -3,7 +3,8 @@ let computerScore        = 0;
 let playerScore          = 0;
 let gameRunning          = true;
 roundResults.textContent = `You versus the computer overlord. Five rounds. Who. Will. Win?\n`;
-displayScore.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+displayComputerScore.textContent = `${computerScore}`;
+displayPlayerScore.textContent = `${playerScore}`;
 
 //lizard, Spock
 const choices            = ["rock", "paper", "scissors"];
@@ -24,21 +25,21 @@ buttons.forEach(button => {
                     (computerSelection === "scissors" && playerSelection === "paper")) {
                 computerScore++;
                 roundResults.textContent = "Oh no! The computer wins this round!\n";
-                displayScore.textContent = 
-                    `You: ${playerScore} Computer: ${computerScore}`;            
+                displayComputerScore.textContent = `${computerScore}`; 
+                displayPlayerScore.textContent = `You: ${playerScore}`;            
                 if (computerScore >= 5) {
                     gameRunning = false;
                     roundResults.textContent = "You lost? Seriously? This thing should have been programmed to lose!";
                 }
             } else if ((computerSelection === playerSelection)) {
                 roundResults.textContent= "Round tied!\n";
-                displayScore.textContent = 
-                    `You: ${playerScore} Computer: ${computerScore}`;               
+                displayComputerScore.textContent = `${computerScore}`; 
+                displayPlayerScore.textContent = `You: ${playerScore}`;               
             } else {
                 playerScore++;
                 roundResults.textContent = "You win this round!\n";
-                displayScore.textContent = 
-                    `You: ${playerScore} Computer: ${computerScore}`;         
+                displayComputerScore.textContent = `${computerScore}`; 
+                displayPlayerScore.textContent = `You: ${playerScore}`;         
                 if (playerScore >= 5) {
                     gameRunning = false;
                     roundResults.textContent = "You showed that Skynet wannabe who the real machine is!";
@@ -50,7 +51,8 @@ buttons.forEach(button => {
                 computerScore = 0;
                 roundResults.textContent = `You versus the computer overlord. Five rounds. Who.\
                         Will. Win?\n`;
-                displayScore.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+                displayComputerScore.textContent = `${computerScore}`;
+                displayPlayerScore.textContent = `${playerScore}`;
                 gameRunning = true;
             });//Game reset condition
         };
