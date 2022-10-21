@@ -26,7 +26,7 @@ buttons.forEach(button => {
                 computerScore++;
                 roundResults.textContent = "Oh no! The computer wins this round!\n";
                 displayComputerScore.textContent = `${computerScore}`; 
-                displayPlayerScore.textContent = `You: ${playerScore}`;            
+                displayPlayerScore.textContent = `${playerScore}`;            
                 if (computerScore >= 5) {
                     gameRunning = false;
                     roundResults.textContent = "You lost? Seriously? This thing should have been programmed to lose!";
@@ -34,7 +34,7 @@ buttons.forEach(button => {
             } else if ((computerSelection === playerSelection)) {
                 roundResults.textContent= "Round tied!\n";
                 displayComputerScore.textContent = `${computerScore}`; 
-                displayPlayerScore.textContent = `You: ${playerScore}`;               
+                displayPlayerScore.textContent = `${playerScore}`;               
             } else {
                 playerScore++;
                 roundResults.textContent = "You win this round!\n";
