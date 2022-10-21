@@ -8,21 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <script src="rps-game.js" defer></script>
-<body style="background-color:hsla(0, 0%, 100%, 0.863) ;">
-    <div class="infoBox">
-        <div id="roundResults" class= "displayText"></div>
-    </div>
-    <div id="displayScore" class= "displayText"></div>
-    
-    <div class="retryContainer">
-        <button id="retryButton"  class= "displayRetry">Retry?</button>
-    </div>
-    
-    <div class="buttonChoice">
-        <button id ="rock" class ="btn">Rock</button>
-        <button id ="paper" class ="btn">Paper</button>
-        <button id ="scissors" class ="btn">Scissors</button>
-    </div>
+<body>
+    <div class="flex">
+        <div class="infoBox">
+            <h1 id="roundResults" class= "displayText"></h1>
+        </div>
 
+        <div class="scoreBox">
+            <div class="displayText player">You
+                <div id="displayPlayerScore" class= "displayText"></div>
+            </div>
+            <div class="displayText computer">Computer
+                <div id="displayComputerScore" class= "displayText"></div>
+            </div>
+        </div>
+        
+        <div class="retryContainer">
+            <button id="retryButton"  class= "displayRetry">Retry?</button>
+        </div>
+        
+        <div class="buttonBox">
+            <button id ="rock" class ="btn">Rock</button>
+            <button id ="paper" class ="btn">Paper</button>
+            <button id ="scissors" class ="btn">Scissors</button>
+        </div>
+    </div>
 </body>
 </html>
