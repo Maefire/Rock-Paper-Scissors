@@ -10,7 +10,7 @@ displayPlayerScore.textContent = `${playerScore}`;
 const choices            = ["rock", "paper", "scissors"];
 
 //Document info pulls
-const buttons            = document.querySelectorAll("div.buttonChoice button");
+const buttons            = document.querySelectorAll("div.buttonBox button");
 const retry              = document.getElementById("retryButton");
 
 //game time
@@ -39,7 +39,7 @@ buttons.forEach(button => {
                 playerScore++;
                 roundResults.textContent = "You win this round!\n";
                 displayComputerScore.textContent = `${computerScore}`; 
-                displayPlayerScore.textContent = `You: ${playerScore}`;         
+                displayPlayerScore.textContent = `${playerScore}`;         
                 if (playerScore >= 5) {
                     gameRunning = false;
                     roundResults.textContent = "You showed that Skynet wannabe who the real machine is!";
