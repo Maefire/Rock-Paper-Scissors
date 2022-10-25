@@ -92,7 +92,11 @@ button:hover{
     color: #050c33;
     font-weight: bold;
 }
-
+button:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 
 @media (max-width: 460px){
     #roundResults{
