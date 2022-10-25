@@ -2,7 +2,8 @@
 *::before,
 *::after{
     box-sizing: border-box;
-    background-color: #050c33;    
+    background-color: #050c33;
+    user-select: none;    
 }
 
 .flex{
