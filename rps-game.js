@@ -13,7 +13,7 @@ const choices                    = ["rock", "paper", "scissors"];
 //Document info pulls
 const buttons                    = document.querySelectorAll("button");
 const retry                      = document.getElementById("retryButton");
-const btnBox              = document.getElementById("boxWrap");
+const btnBox                     = document.getElementById("boxWrap");
 
 //game time
 buttons.forEach(button => {        
