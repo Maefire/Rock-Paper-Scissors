@@ -6,6 +6,8 @@ roundResults.textContent         = `Fancy a game of Rock, Paper, Scissors? First
                             Who. Will. Win?\n`;
 displayComputerScore.textContent = `${computerScore}`;
 displayPlayerScore.textContent   = `${playerScore}`;
+displayPlayerChoice.textContent  = '';
+displayComputerChoice.textContent= '';
 
 //lizard, Spock
 const choices                    = ["rock", "paper", "scissors"];
@@ -27,16 +29,22 @@ buttons.forEach(button => {
                     (computerSelection === "scissors" && playerSelection === "paper")) {
                 computerScore++;
                 roundResults.textContent = "Good try, but I've taken this round!\n";
+                displayComputerChoice.textContent=`chose: ${computerSelection}`
                 displayComputerScore.textContent = `${computerScore}`; 
+                displayPlayerChoice.textContent = `chose: ${playerSelection}`;
                 displayPlayerScore.textContent = `${playerScore}`;                            
             } else if ((computerSelection === playerSelection)) {
                 roundResults.textContent= `The round is tied, but the game isn't finished yet!\n`;
+                displayComputerChoice.textContent=`chose: ${computerSelection}`
                 displayComputerScore.textContent = `${computerScore}`; 
+                displayPlayerChoice.textContent = `chose: ${playerSelection}`;
                 displayPlayerScore.textContent = `${playerScore}`;               
             } else {
                 playerScore++;
                 roundResults.textContent = `Blast! You won't get the better of me next round!\n`;
+                displayComputerChoice.textContent=`chose: ${computerSelection}`
                 displayComputerScore.textContent = `${computerScore}`; 
+                displayPlayerChoice.textContent = `chose: ${playerSelection}`;
                 displayPlayerScore.textContent = `${playerScore}`;         
             }
         if (playerScore >= 5) {
